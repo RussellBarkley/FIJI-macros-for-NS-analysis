@@ -1,0 +1,15 @@
+run("Set Measurements...", "area integrated redirect=None decimal=3");
+//run("Threshold...");
+setThreshold(50, 65535, "raw");
+waitForUser("Outline cell with lasso or wand tool");
+run("Measure");
+String.copyResults();
+waitForUser("Paste data into excel");
+Table.deleteRows(0, 10000);
+setAutoThreshold("Huang dark no-reset");
+//run("Threshold...");
+run("Despeckle");
+run("Analyze Particles...", "display clear slice");
+String.copyResults();
+waitForUser("Paste data into excel");
+Table.deleteRows(0, 10000);
